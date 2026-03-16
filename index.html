@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Highlighter — Chrome Extension</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      color: #1a1a1a;
+      line-height: 1.6;
+      background: #fafafa;
+    }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 48px 24px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+    header p {
+      font-size: 1.1rem;
+      color: #aaa;
+    }
+    main {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+    h2 {
+      font-size: 1.3rem;
+      margin: 32px 0 12px;
+    }
+    p, li {
+      margin-bottom: 12px;
+      color: #333;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .badge {
+      display: inline-block;
+      background: #ffc107;
+      color: #222;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+    nav {
+      text-align: center;
+      margin-top: 16px;
+    }
+    nav a {
+      color: #ccc;
+      margin: 0 12px;
+      font-size: 0.9rem;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+    footer {
+      text-align: center;
+      padding: 32px 24px;
+      color: #999;
+      font-size: 0.85rem;
+      border-top: 1px solid #eee;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Text Highlighter</h1>
+    <p>Word-by-word reading highlighter for Chrome</p>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>What it does</h2>
+    <p>Text Highlighter helps you follow along with text word by word. It places a visible highlight box around the current word and lets you step through text at your own pace using keyboard shortcuts.</p>
+
+    <h2>Supported sites</h2>
+    <ul>
+      <li><strong>Google Slides</strong> — works in both edit and presentation mode</li>
+      <li><strong>AbbaSelama.org</strong> — prayer texts with automatic content change detection</li>
+    </ul>
+
+    <h2>Keyboard shortcuts</h2>
+    <ul>
+      <li><strong>Option+H</strong> (Alt+H on Windows) — toggle highlighter on/off</li>
+      <li><strong>.</strong> or <strong>&rarr;</strong> — next word</li>
+      <li><strong>,</strong> or <strong>&larr;</strong> — previous word</li>
+      <li><strong>S</strong> — pick mode (click any word to jump there)</li>
+      <li><strong>R</strong> — restart from first word</li>
+      <li><strong>G</strong> — cycle word group size (1/2/3/5)</li>
+      <li><strong>B</strong> — show/hide status badge</li>
+      <li><strong>Escape</strong> — cancel or turn off</li>
+    </ul>
+
+    <h2>Settings</h2>
+    <p>Click the extension icon in the toolbar to customize:</p>
+    <ul>
+      <li>Highlight color — 10 presets or pick a custom color</li>
+      <li>Word group size — highlight 1, 2, 3, or 5 words at a time</li>
+    </ul>
+
+    <h2>Install</h2>
+    <p>Available on the <a href="#">Chrome Web Store</a> <span class="badge">Coming soon</span></p>
+  </main>
+
+  <footer>
+    &copy; 2026 Text Highlighter. <a href="privacy.html">Privacy Policy</a>
+  </footer>
+</body>
+</html>
