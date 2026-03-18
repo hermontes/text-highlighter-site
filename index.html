@@ -98,19 +98,21 @@
     <h2>Supported sites</h2>
     <ul>
       <li><strong>Google Slides</strong> — works in both edit and presentation mode</li>
-      <li><strong>AbbaSelama.org</strong> — prayer texts with automatic content change detection</li>
-      <li><strong>Any website</strong> — click "Activate on this page" in the popup to use on any site</li>
+      <li><strong>AbbaSelama.org</strong> — prayer texts with automatic content change detection, psalm jump by number</li>
+      <li><strong>GeezExperience.com</strong> — Tigrinya/English Bible with two-column support, verse jump by number</li>
+      <li><strong>Any website</strong> — click "Activate on this page" in the popup. Chrome will ask for permission once, then the extension stays active on that site even after refreshing.</li>
     </ul>
 
     <h2>Keyboard shortcuts</h2>
     <ul>
       <li><strong>Option+H</strong> (Alt+H on Windows) — toggle highlighter on/off</li>
-      <li><strong>.</strong> — next word (<strong>&rarr;</strong> also works on AbbaSelama)</li>
-      <li><strong>,</strong> — previous word (<strong>&larr;</strong> also works on AbbaSelama)</li>
+      <li><strong>.</strong> — next word/line (<strong>&rarr;</strong> also works on AbbaSelama &amp; GeezExperience)</li>
+      <li><strong>,</strong> — previous word/line (<strong>&larr;</strong> also works on AbbaSelama &amp; GeezExperience)</li>
       <li><strong>S</strong> — pick mode (click any word to jump there)</li>
       <li><strong>R</strong> — restart from first word</li>
-      <li><strong>G</strong> — cycle word group size (1/2/3/4/5/6)</li>
+      <li><strong>W</strong> — cycle word group size (1 &rarr; 2 &rarr; ... &rarr; 10 &rarr; Line &rarr; 1)</li>
       <li><strong>B</strong> — show/hide status badge</li>
+      <li><strong>0–9</strong> — jump to verse/psalm number (type multi-digit quickly, e.g. <strong>8</strong> then <strong>4</strong> &rarr; Psalm 84)</li>
       <li><strong>Esc</strong> — cancel pick mode or turn off highlighter</li>
     </ul>
 
@@ -119,19 +121,28 @@
     <ul>
       <li>Highlight color — 10 presets or pick a custom color</li>
       <li>Highlight style — Outline, Underline, or Fill</li>
-      <li>Word group size — highlight 1, 2, 3, 4, 5, or 6 words at a time</li>
+      <li>Word group size — 1 to 10 words, or full Line mode (default)</li>
     </ul>
 
     <h2>Resume reading</h2>
-    <p>Text Highlighter remembers where you left off. If you refresh the page or close and reopen it, activating the highlighter will resume from your last position (within 24 hours). Press <strong>R</strong> to restart from the beginning.</p>
+    <p>Text Highlighter remembers where you left off. If you refresh the page or close and reopen it, the highlighter will resume from your last position (within 24 hours). Press <strong>R</strong> to restart from the beginning.</p>
+    <p>On supported sites (GeezExperience, AbbaSelama), navigating to a new chapter automatically keeps the highlighter active — no need to press Option+H again.</p>
+
+    <h2>Verse &amp; Psalm Jump</h2>
+    <p>On GeezExperience and AbbaSelama, press number keys to jump directly to a verse or psalm:</p>
+    <ul>
+      <li><strong>GeezExperience</strong> — type a verse number (e.g. <strong>3</strong> for verse 3, <strong>1</strong> then <strong>5</strong> for verse 15). Jumps within the column you're currently reading (Tigrinya or English).</li>
+      <li><strong>AbbaSelama</strong> — type a psalm number (e.g. <strong>5</strong> then <strong>1</strong> for Psalm 51). Numbers are parsed from the section headings.</li>
+    </ul>
 
     <h2>How to use</h2>
     <ol>
       <li>Install the extension from the <a href="#">Chrome Web Store</a> <span class="badge">Coming soon</span></li>
-      <li>Go to a supported site (Google Slides, AbbaSelama.org, or any page via "Activate on this page")</li>
-      <li>Press <strong>Option+H</strong> (Alt+H on Windows) to start highlighting</li>
+      <li>Go to a supported site (Google Slides, AbbaSelama.org) or any page</li>
+      <li>For Google Slides and AbbaSelama.org, press <strong>Option+H</strong> (Alt+H on Windows) to start</li>
+      <li>For any other site, click the extension icon and press <strong>"Activate on this page"</strong>. Chrome will ask for permission the first time — after that, the extension will auto-activate on that site even after refreshing</li>
       <li>Use <strong>.</strong> to move to the next word, <strong>,</strong> to go back</li>
-      <li>Click the extension icon in the toolbar to change the highlight color or word group size</li>
+      <li>Click the extension icon in the toolbar to change the highlight color, style, or word group size</li>
     </ol>
   </main>
 
