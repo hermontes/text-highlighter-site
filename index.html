@@ -3,88 +3,150 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Text Highlighter — Word by Word Reader</title>
+  <title>Text Highlighter — Voice-Activated Reading Guide</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: system-ui, -apple-system, sans-serif;
       color: #1a1a1a;
-      line-height: 1.6;
-      background: #fafafa;
+      line-height: 1.7;
+      background: #fff;
     }
     header {
-      background: #222;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
       color: #fff;
-      padding: 48px 24px;
+      padding: 56px 24px 48px;
       text-align: center;
     }
     header h1 {
-      font-size: 2rem;
-      margin-bottom: 8px;
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
     }
     header p {
-      font-size: 1.1rem;
-      color: #aaa;
-    }
-    main {
-      max-width: 640px;
+      font-size: 1.15rem;
+      color: #94a3b8;
+      max-width: 520px;
       margin: 0 auto;
-      padding: 40px 24px;
-    }
-    h2 {
-      font-size: 1.3rem;
-      margin: 32px 0 12px;
-    }
-    p, li {
-      margin-bottom: 12px;
-      color: #333;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    a {
-      color: #2563eb;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .badge {
-      display: inline-block;
-      background: #ffc107;
-      color: #222;
-      font-size: 0.75rem;
-      font-weight: 600;
-      padding: 2px 8px;
-      border-radius: 4px;
-      margin-left: 8px;
-      vertical-align: middle;
     }
     nav {
       text-align: center;
-      margin-top: 16px;
+      margin-top: 20px;
     }
     nav a {
-      color: #ccc;
+      color: #94a3b8;
       margin: 0 12px;
       font-size: 0.9rem;
+      text-decoration: none;
     }
-    nav a:hover {
+    nav a:hover { color: #fff; }
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 48px 24px 64px;
+    }
+    h2 {
+      font-size: 1.35rem;
+      margin: 40px 0 14px;
+      color: #0f172a;
+      font-weight: 600;
+    }
+    h2:first-child { margin-top: 0; }
+    p, li {
+      margin-bottom: 10px;
+      color: #374151;
+      font-size: 0.95rem;
+    }
+    ul, ol { padding-left: 20px; }
+    li { margin-bottom: 8px; }
+    a { color: #2563eb; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    kbd {
+      background: #f1f5f9;
+      border: 1px solid #d1d5db;
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 0.85em;
+      font-family: inherit;
+      white-space: nowrap;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 16px 0 24px;
+    }
+    @media (max-width: 500px) {
+      .feature-grid { grid-template-columns: 1fr; }
+    }
+    .feature-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .feature-card strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #0f172a;
+    }
+    .feature-card p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: #475569;
+    }
+    .badge {
+      display: inline-block;
+      background: #2563eb;
       color: #fff;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-left: 6px;
+      vertical-align: middle;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
+    .shortcut-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 24px;
+      font-size: 0.92rem;
+    }
+    .shortcut-table th {
+      text-align: left;
+      padding: 8px 12px;
+      background: #f1f5f9;
+      border-bottom: 2px solid #e2e8f0;
+      font-weight: 600;
+      color: #0f172a;
+    }
+    .shortcut-table td {
+      padding: 8px 12px;
+      border-bottom: 1px solid #f1f5f9;
+      color: #374151;
+    }
+    .shortcut-table tr:last-child td { border-bottom: none; }
     footer {
       text-align: center;
       padding: 32px 24px;
-      color: #999;
+      color: #9ca3af;
       font-size: 0.85rem;
-      border-top: 1px solid #eee;
+      border-top: 1px solid #f1f5f9;
+    }
+    .section-divider {
+      border: none;
+      border-top: 1px solid #f1f5f9;
+      margin: 40px 0;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Text Highlighter — Word by Word Reader</h1>
-    <p>A Chrome extension for focused, word-by-word reading</p>
+    <h1>Text Highlighter</h1>
+    <p>A Chrome extension for focused reading with voice-activated follow-along, supporting English and Ge'ez script (Tigrinya)</p>
     <nav>
       <a href="index.html">Home</a>
       <a href="privacy.html">Privacy Policy</a>
@@ -93,61 +155,106 @@
 
   <main>
     <h2>What it does</h2>
-    <p>Text Highlighter helps you follow along with text word by word. It places a visible highlight box around the current word and lets you step through text at your own pace using keyboard shortcuts.</p>
+    <p>Text Highlighter places a visible highlight box around the current word or line and lets you step through text at your own pace. It also includes a <strong>voice follow mode</strong> that listens to you read aloud and automatically advances the highlight to follow along.</p>
+
+    <div class="feature-grid">
+      <div class="feature-card">
+        <strong>Voice Follow <span class="badge">New</span></strong>
+        <p>Read aloud and the highlight follows your voice in real time. Works with English and Tigrinya (via Amharic speech recognition).</p>
+      </div>
+      <div class="feature-card">
+        <strong>Smooth Highlighting</strong>
+        <p>The highlight glides between positions with adjustable animation speed. Supports outline, underline, and fill styles.</p>
+      </div>
+      <div class="feature-card">
+        <strong>Multi-line Mode</strong>
+        <p>Highlight 1 to 8 lines at once. In voice mode, the highlight slides by one line at a time so your reading position stays centered.</p>
+      </div>
+      <div class="feature-card">
+        <strong>Resume Reading</strong>
+        <p>Remembers where you left off. Refresh or close the page — the highlight resumes from your last position within 24 hours.</p>
+      </div>
+    </div>
+
+    <hr class="section-divider">
 
     <h2>Supported sites</h2>
     <ul>
-      <li><strong>Google Slides</strong> — works in both edit and presentation mode</li>
-      <li><strong>AbbaSelama.org</strong> — prayer texts with automatic content change detection, psalm jump by number</li>
-      <li><strong>GeezExperience.com</strong> — Tigrinya/English Bible with two-column support, verse jump by number</li>
-      <li><strong>Any website</strong> — click "Activate on this page" in the popup. Chrome will ask for permission once, then the extension stays active on that site even after refreshing.</li>
+      <li><strong>Google Slides</strong> — edit and presentation mode. Text boxes read individually.</li>
+      <li><strong>AbbaSelama.org</strong> — prayer texts with content change detection, psalm jump by number.</li>
+      <li><strong>GeezExperience.com</strong> — Tigrinya/English Bible with two-column support, verse jump by number.</li>
+      <li><strong>Any website</strong> — toggle ON from the popup or press <kbd>Option+H</kbd>.</li>
     </ul>
+
+    <hr class="section-divider">
+
+    <h2>Voice follow mode</h2>
+    <p>Press <kbd>V</kbd> to start voice follow. A green mic indicator appears in the top-right corner. Read aloud and the highlight advances automatically as it recognizes your speech.</p>
+    <ul>
+      <li>On Ge'ez sites (AbbaSelama, GeezExperience), uses <strong>Amharic</strong> speech recognition — the closest supported language to Tigrinya.</li>
+      <li>Press <kbd>T</kbd> to toggle between <strong>Amharic</strong> and <strong>English</strong> recognition without stopping voice follow.</li>
+      <li>Ge'ez script matching uses phonetic normalization, consonant family weighting, and prefix matching to handle cross-language differences.</li>
+      <li>If the algorithm loses track, it automatically re-syncs or advances after a brief delay.</li>
+    </ul>
+
+    <hr class="section-divider">
 
     <h2>Keyboard shortcuts</h2>
-    <ul>
-      <li><strong>Option+H</strong> (Alt+H on Windows) — toggle highlighter on/off</li>
-      <li><strong>.</strong> — next word/line (<strong>&rarr;</strong> also works on AbbaSelama &amp; GeezExperience)</li>
-      <li><strong>,</strong> — previous word/line (<strong>&larr;</strong> also works on AbbaSelama &amp; GeezExperience)</li>
-      <li><strong>S</strong> — pick mode (click any word to jump there)</li>
-      <li><strong>R</strong> — restart from first word</li>
-      <li><strong>W</strong> — cycle word group size (1 &rarr; 2 &rarr; ... &rarr; 10 &rarr; Line &rarr; 1)</li>
-      <li><strong>B</strong> — show/hide status badge</li>
-      <li><strong>0–9</strong> — jump to verse/psalm number (type multi-digit quickly, e.g. <strong>8</strong> then <strong>4</strong> &rarr; Psalm 84)</li>
-      <li><strong>Esc</strong> — cancel pick mode or turn off highlighter</li>
-    </ul>
+    <table class="shortcut-table">
+      <tr><th>Key</th><th>Action</th></tr>
+      <tr><td><kbd>Option+H</kbd></td><td>Toggle highlighter on/off</td></tr>
+      <tr><td><kbd>.</kbd> or <kbd>&rarr;</kbd></td><td>Next word/line</td></tr>
+      <tr><td><kbd>,</kbd> or <kbd>&larr;</kbd></td><td>Previous word/line</td></tr>
+      <tr><td><kbd>V</kbd></td><td>Toggle voice follow mode</td></tr>
+      <tr><td><kbd>T</kbd></td><td>Toggle voice language (Amharic / English)</td></tr>
+      <tr><td><kbd>S</kbd></td><td>Pick mode — click any word to jump there</td></tr>
+      <tr><td><kbd>R</kbd></td><td>Restart from first word</td></tr>
+      <tr><td><kbd>W</kbd></td><td>Cycle word group size (1 &rarr; 10 &rarr; Line)</td></tr>
+      <tr><td><kbd>L</kbd></td><td>Cycle lines per highlight (1 &rarr; 8)</td></tr>
+      <tr><td><kbd>B</kbd></td><td>Show/hide status badge</td></tr>
+      <tr><td><kbd>0&ndash;9</kbd></td><td>Jump to verse/psalm number</td></tr>
+      <tr><td><kbd>Esc</kbd></td><td>Cancel pick mode or turn off</td></tr>
+    </table>
 
-    <h2>Settings</h2>
+    <hr class="section-divider">
+
+    <h2>Popup settings</h2>
     <p>Click the extension icon in the toolbar to customize:</p>
     <ul>
-      <li>Highlight color — 10 presets or pick a custom color</li>
-      <li>Highlight style — Outline, Underline, or Fill</li>
-      <li>Word group size — 1 to 10 words, or full Line mode (default)</li>
+      <li><strong>On/Off</strong> — activate or deactivate on the current page</li>
+      <li><strong>Color</strong> — 5 presets or a custom color picker</li>
+      <li><strong>Style</strong> — Outline, Underline, or Fill</li>
+      <li><strong>Words</strong> — Line mode (default), 1w, 5w, or 10w</li>
+      <li><strong>Lines</strong> — 1 to 8 lines per highlight (default: 3)</li>
+      <li><strong>Voice Follow</strong> — toggle voice mode on/off</li>
+      <li><strong>Liturgy (Qidasie)</strong> — Off, Tigrinya, or English column in Google Slides</li>
+      <li><strong>Box speed</strong> — highlight animation speed (default: 1650ms)</li>
+      <li><strong>Scroll speed</strong> — auto-scroll speed (default: 6400ms)</li>
+      <li><strong>Border thickness</strong> — highlight border width</li>
     </ul>
 
-    <h2>Resume reading</h2>
-    <p>Text Highlighter remembers where you left off. If you refresh the page or close and reopen it, the highlighter will resume from your last position (within 24 hours). Press <strong>R</strong> to restart from the beginning.</p>
-    <p>On supported sites (GeezExperience, AbbaSelama), navigating to a new chapter automatically keeps the highlighter active — no need to press Option+H again.</p>
+    <hr class="section-divider">
 
-    <h2>Verse &amp; Psalm Jump</h2>
-    <p>On GeezExperience and AbbaSelama, press number keys to jump directly to a verse or psalm:</p>
+    <h2>Verse &amp; psalm jump</h2>
+    <p>On GeezExperience and AbbaSelama, type number keys to jump directly:</p>
     <ul>
-      <li><strong>GeezExperience</strong> — type a verse number (e.g. <strong>3</strong> for verse 3, <strong>1</strong> then <strong>5</strong> for verse 15). Jumps within the column you're currently reading (Tigrinya or English).</li>
-      <li><strong>AbbaSelama</strong> — type a psalm number (e.g. <strong>5</strong> then <strong>1</strong> for Psalm 51). Numbers are parsed from the section headings.</li>
+      <li><strong>GeezExperience</strong> — verse number (e.g. <kbd>1</kbd><kbd>5</kbd> for verse 15). Jumps within the column you're reading.</li>
+      <li><strong>AbbaSelama</strong> — psalm/section number from headings.</li>
     </ul>
 
-    <h2>How to use</h2>
+    <hr class="section-divider">
+
+    <h2>How to install</h2>
     <ol>
-      <li>Install the extension from the <a href="#">Chrome Web Store</a> <span class="badge">Coming soon</span></li>
-      <li>Go to a supported site (Google Slides, AbbaSelama.org) or any page</li>
-      <li>For Google Slides and AbbaSelama.org, press <strong>Option+H</strong> (Alt+H on Windows) to start</li>
-      <li>For any other site, click the extension icon and press <strong>"Activate on this page"</strong>. Chrome will ask for permission the first time — after that, the extension will auto-activate on that site even after refreshing</li>
-      <li>Use <strong>.</strong> to move to the next word, <strong>,</strong> to go back</li>
-      <li>Click the extension icon in the toolbar to change the highlight color, style, or word group size</li>
+      <li>Install from the <a href="#">Chrome Web Store</a></li>
+      <li>Go to any webpage</li>
+      <li>Press <kbd>Option+H</kbd> or click the extension icon and toggle <strong>ON</strong></li>
+      <li>Use <kbd>.</kbd> to advance, <kbd>,</kbd> to go back, or press <kbd>V</kbd> for voice follow</li>
     </ol>
   </main>
 
   <footer>
-    &copy; 2026 Text Highlighter. <a href="privacy.html">Privacy Policy</a>
+    &copy; 2025 Text Highlighter. <a href="privacy.html">Privacy Policy</a>
   </footer>
 </body>
 </html>
