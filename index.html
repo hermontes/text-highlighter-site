@@ -129,6 +129,15 @@
       color: #374151;
     }
     .shortcut-table tr:last-child td { border-bottom: none; }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #94a3af;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 12px 12px 4px;
+      background: #f8fafc;
+    }
     footer {
       text-align: center;
       padding: 32px 24px;
@@ -146,7 +155,7 @@
 <body>
   <header>
     <h1>Text Highlighter</h1>
-    <p>A Chrome extension for focused reading with voice-activated follow-along, supporting English and Ge'ez script (Tigrinya)</p>
+    <p>A Chrome extension for focused reading with voice follow-along, transliteration, teleprompter, and training data collection for Tigrinya</p>
     <nav>
       <a href="index.html">Home</a>
       <a href="privacy.html">Privacy Policy</a>
@@ -155,12 +164,24 @@
 
   <main>
     <h2>What it does</h2>
-    <p>Text Highlighter places a visible highlight box around the current word or line and lets you step through text at your own pace. It also includes a <strong>voice follow mode</strong> that listens to you read aloud and automatically advances the highlight to follow along.</p>
+    <p>Text Highlighter places a visible box around the current word or line and lets you step through text at your own pace. It includes <strong>voice follow mode</strong> that listens to you read aloud and advances the highlight automatically, a <strong>teleprompter</strong> for silent reading, <strong>Tiglish transliteration</strong> for Ge'ez script, and a <strong>training data recorder</strong> for building Tigrinya speech-to-text models.</p>
 
     <div class="feature-grid">
       <div class="feature-card">
-        <strong>Voice Follow <span class="badge">New</span></strong>
+        <strong>Voice Follow</strong>
         <p>Read aloud and the highlight follows your voice in real time. Works with English and Tigrinya (via Amharic speech recognition).</p>
+      </div>
+      <div class="feature-card">
+        <strong>Teleprompter <span class="badge">New</span></strong>
+        <p>Auto-scrolls text for silent reading. Adjust speed with arrow keys. Pauses and resumes with spacebar.</p>
+      </div>
+      <div class="feature-card">
+        <strong>Tiglish Transliteration <span class="badge">New</span></strong>
+        <p>Shows Latin pronunciation below Ge'ez text. Helps readers who can speak Tigrinya but can't read the script.</p>
+      </div>
+      <div class="feature-card">
+        <strong>Training Data Collection <span class="badge">New</span></strong>
+        <p>Record yourself reading highlighted text to generate labeled audio data for Tigrinya speech-to-text training.</p>
       </div>
       <div class="feature-card">
         <strong>Smooth Highlighting</strong>
@@ -168,11 +189,15 @@
       </div>
       <div class="feature-card">
         <strong>Multi-line Mode</strong>
-        <p>Highlight 1 to 8 lines at once. In voice mode, the highlight slides by one line at a time so your reading position stays centered.</p>
+        <p>Highlight 1 to 8 lines at once. In voice mode, the highlight slides by one line at a time.</p>
       </div>
       <div class="feature-card">
         <strong>Resume Reading</strong>
         <p>Remembers where you left off. Refresh or close the page — the highlight resumes from your last position within 24 hours.</p>
+      </div>
+      <div class="feature-card">
+        <strong>Verse &amp; Psalm Jump</strong>
+        <p>Type a number to jump directly to a verse or psalm on supported Bible sites.</p>
       </div>
     </div>
 
@@ -183,6 +208,7 @@
       <li><strong>Google Slides</strong> — edit and presentation mode. Text boxes read individually.</li>
       <li><strong>AbbaSelama.org</strong> — prayer texts with content change detection, psalm jump by number.</li>
       <li><strong>GeezExperience.com</strong> — Tigrinya/English Bible with two-column support, verse jump by number.</li>
+      <li><strong>BibleGateway.com</strong> — chapter navigation and verse highlighting.</li>
       <li><strong>Any website</strong> — toggle ON from the popup or press <kbd>Option+H</kbd>.</li>
     </ul>
 
@@ -199,20 +225,60 @@
 
     <hr class="section-divider">
 
+    <h2>Teleprompter mode</h2>
+    <p>Press <kbd>P</kbd> to start the teleprompter. The page scrolls at a steady pace so you can read without touching the keyboard. Use <kbd>&uarr;</kbd> / <kbd>&darr;</kbd> to adjust speed, <kbd>Space</kbd> to pause and resume.</p>
+
+    <hr class="section-divider">
+
+    <h2>Tiglish transliteration</h2>
+    <p>Press <kbd>G</kbd> to show Latin pronunciation below each Ge'ez word (e.g. ሰላም &rarr; selam). Useful for readers who can speak Tigrinya but are still learning to read the Ge'ez script. Toggle off by pressing <kbd>G</kbd> again.</p>
+
+    <hr class="section-divider">
+
+    <h2>Training data collection</h2>
+    <p>Built-in recording workflow for generating labeled Tigrinya speech data:</p>
+    <ol>
+      <li>Press <kbd>D</kbd> to start recording — read the highlighted text aloud.</li>
+      <li>Words are underlined as matched. Gaps fill automatically (if word 1 and 3 match, word 2 gets underlined too).</li>
+      <li>Recording auto-stops when the last word matches and 70% coverage is reached.</li>
+      <li>Auto-advances to the next box. Press <kbd>D</kbd> again to record the next chunk.</li>
+      <li>Press <kbd>Escape</kbd> to discard a bad take.</li>
+      <li>Press <kbd>Shift+D</kbd> to export all recordings as <code>chunk_XXXX.wav</code> files + <code>metadata.csv</code>.</li>
+    </ol>
+    <p>The transcript is the known page text (not speech engine output), so labels are 100% accurate. Output format is ready for Whisper fine-tuning.</p>
+
+    <hr class="section-divider">
+
     <h2>Keyboard shortcuts</h2>
+
     <table class="shortcut-table">
       <tr><th>Key</th><th>Action</th></tr>
+      <tr><td colspan="2" class="section-label">Navigation</td></tr>
       <tr><td><kbd>Option+H</kbd></td><td>Toggle highlighter on/off</td></tr>
       <tr><td><kbd>.</kbd> or <kbd>&rarr;</kbd></td><td>Next word/line</td></tr>
       <tr><td><kbd>,</kbd> or <kbd>&larr;</kbd></td><td>Previous word/line</td></tr>
-      <tr><td><kbd>V</kbd></td><td>Toggle voice follow mode</td></tr>
-      <tr><td><kbd>T</kbd></td><td>Toggle voice language (Amharic / English)</td></tr>
-      <tr><td><kbd>S</kbd></td><td>Pick mode — click any word to jump there</td></tr>
-      <tr><td><kbd>R</kbd></td><td>Restart from first word</td></tr>
       <tr><td><kbd>W</kbd></td><td>Cycle word group size (1 &rarr; 10 &rarr; Line)</td></tr>
       <tr><td><kbd>L</kbd></td><td>Cycle lines per highlight (1 &rarr; 8)</td></tr>
-      <tr><td><kbd>B</kbd></td><td>Show/hide status badge</td></tr>
+      <tr><td><kbd>S</kbd></td><td>Pick mode — click any word to jump there</td></tr>
+      <tr><td><kbd>R</kbd></td><td>Restart from first word</td></tr>
       <tr><td><kbd>0&ndash;9</kbd></td><td>Jump to verse/psalm number</td></tr>
+
+      <tr><td colspan="2" class="section-label">Voice &amp; Reading</td></tr>
+      <tr><td><kbd>V</kbd></td><td>Toggle voice follow mode</td></tr>
+      <tr><td><kbd>T</kbd></td><td>Toggle voice language (Amharic / English)</td></tr>
+      <tr><td><kbd>P</kbd></td><td>Toggle teleprompter (auto-scroll)</td></tr>
+      <tr><td><kbd>Space</kbd></td><td>Pause/resume teleprompter</td></tr>
+      <tr><td><kbd>&uarr;</kbd> / <kbd>&darr;</kbd></td><td>Adjust teleprompter speed</td></tr>
+      <tr><td><kbd>G</kbd></td><td>Toggle Tiglish transliteration overlay</td></tr>
+
+      <tr><td colspan="2" class="section-label">Training Data</td></tr>
+      <tr><td><kbd>D</kbd></td><td>Start/stop continuous recording</td></tr>
+      <tr><td><kbd>Shift+D</kbd></td><td>Export metadata.csv + audio files</td></tr>
+      <tr><td><kbd>Esc</kbd></td><td>Discard current recording</td></tr>
+
+      <tr><td colspan="2" class="section-label">Other</td></tr>
+      <tr><td><kbd>B</kbd></td><td>Show/hide status badge</td></tr>
+      <tr><td><kbd>?</kbd></td><td>Toggle keyboard shortcut help</td></tr>
       <tr><td><kbd>Esc</kbd></td><td>Cancel pick mode or turn off</td></tr>
     </table>
 
@@ -228,18 +294,9 @@
       <li><strong>Lines</strong> — 1 to 8 lines per highlight (default: 3)</li>
       <li><strong>Voice Follow</strong> — toggle voice mode on/off</li>
       <li><strong>Liturgy (Qidasie)</strong> — Off, Tigrinya, or English column in Google Slides</li>
-      <li><strong>Box speed</strong> — highlight animation speed (default: 1650ms)</li>
-      <li><strong>Scroll speed</strong> — auto-scroll speed (default: 6400ms)</li>
+      <li><strong>Box speed</strong> — highlight animation speed</li>
+      <li><strong>Scroll speed</strong> — auto-scroll speed</li>
       <li><strong>Border thickness</strong> — highlight border width</li>
-    </ul>
-
-    <hr class="section-divider">
-
-    <h2>Verse &amp; psalm jump</h2>
-    <p>On GeezExperience and AbbaSelama, type number keys to jump directly:</p>
-    <ul>
-      <li><strong>GeezExperience</strong> — verse number (e.g. <kbd>1</kbd><kbd>5</kbd> for verse 15). Jumps within the column you're reading.</li>
-      <li><strong>AbbaSelama</strong> — psalm/section number from headings.</li>
     </ul>
 
     <hr class="section-divider">
@@ -250,6 +307,7 @@
       <li>Go to any webpage</li>
       <li>Press <kbd>Option+H</kbd> or click the extension icon and toggle <strong>ON</strong></li>
       <li>Use <kbd>.</kbd> to advance, <kbd>,</kbd> to go back, or press <kbd>V</kbd> for voice follow</li>
+      <li>Press <kbd>?</kbd> to see all keyboard shortcuts</li>
     </ol>
   </main>
 
