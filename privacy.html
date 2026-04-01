@@ -34,6 +34,7 @@
       color: #ccc;
       margin: 0 12px;
       font-size: 0.9rem;
+      text-decoration: none;
     }
     nav a:hover {
       color: #fff;
@@ -89,32 +90,47 @@
   </header>
 
   <main>
-    <p class="updated">Last updated: March 16, 2026</p>
+    <p class="updated">Last updated: April 1, 2026</p>
 
     <h2>Overview</h2>
-    <p>Text Highlighter is a Chrome extension that provides word-by-word reading highlighting on supported websites. We are committed to protecting your privacy. This policy explains what data the extension handles and how.</p>
+    <p>Text Highlighter is a Chrome extension that provides word-by-word reading highlighting and voice-activated follow-along. We are committed to protecting your privacy. This policy explains what data the extension handles and how.</p>
 
     <h2>Data we collect</h2>
-    <p><strong>None.</strong> Text Highlighter does not collect, transmit, or share any personal data, browsing history, or website content.</p>
+    <p><strong>None.</strong> Text Highlighter does not collect, transmit, or share any personal data, browsing history, or website content to any server or third party.</p>
 
     <h2>Data stored locally</h2>
-    <p>The extension stores your preferences using Chrome's built-in storage API (<code>chrome.storage.sync</code>). This includes:</p>
+    <p>The extension stores your preferences using Chrome's built-in storage API (<code>chrome.storage.local</code>). This includes:</p>
     <ul>
-      <li>Your chosen highlight color</li>
-      <li>Your preferred word group size</li>
+      <li>Highlight color, style, and animation speed settings</li>
+      <li>Word group size and line count preferences</li>
+      <li>Last reading position (for resume-on-refresh)</li>
+      <li>Whether the highlighter was active on a particular site</li>
+      <li>Voice follow on/off state</li>
     </ul>
-    <p>This data is synced across your Chrome browsers via your Google account (a standard Chrome feature). It is never sent to us or any third party.</p>
+    <p>This data stays on your device and is never sent to us or any third party.</p>
+
+    <h2>Microphone access</h2>
+    <p>The <strong>voice follow</strong> feature uses your device's microphone to listen to you read aloud and advance the highlight automatically. Microphone access is:</p>
+    <ul>
+      <li>Only activated when you press <kbd>V</kbd> or toggle voice follow on</li>
+      <li>Processed locally in your browser using the Web Speech API (Chrome's built-in speech recognition)</li>
+      <li>Never recorded, stored, or transmitted by the extension</li>
+      <li>Stopped immediately when you press <kbd>V</kbd> again or close the tab</li>
+    </ul>
+    <p>Chrome's built-in speech recognition may send audio to Google's servers for processing as part of Chrome's standard speech recognition service. This is a Chrome platform feature, not controlled by this extension.</p>
 
     <h2>Website access</h2>
-    <p>The extension runs only on the following sites:</p>
+    <p>The extension automatically activates on the following sites:</p>
     <ul>
-      <li><code>docs.google.com/presentation/*</code></li>
-      <li><code>abbaselama.org/*</code></li>
+      <li><code>docs.google.com/presentation/*</code> (Google Slides)</li>
+      <li><code>abbaselama.org/*</code> (Orthodox prayer texts)</li>
+      <li><code>bibleonline.geezexperience.com/*</code> (Tigrinya Bible)</li>
+      <li><code>www.biblegateway.com/*</code> (Bible Gateway)</li>
     </ul>
-    <p>It reads text content on these pages solely to identify words for highlighting. No page content is stored, transmitted, or logged.</p>
+    <p>The extension can also be manually activated on <strong>any webpage</strong> by clicking the extension icon or pressing <kbd>Option+H</kbd>. This requires the optional "all sites" permission, which Chrome will prompt you to grant. On all sites, the extension reads text content solely to identify words for highlighting. No page content is stored, transmitted, or logged.</p>
 
     <h2>Third-party services</h2>
-    <p>Text Highlighter does not use any third-party services, analytics, or tracking.</p>
+    <p>Text Highlighter does not use any analytics, tracking, or advertising services. The only external service interaction is Chrome's built-in speech recognition when voice follow is active (see Microphone Access above).</p>
 
     <h2>Changes to this policy</h2>
     <p>If this policy is updated, the changes will be posted on this page with a revised date.</p>
