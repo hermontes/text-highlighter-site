@@ -51,6 +51,16 @@
     .voice-cmd-table tr:last-child td { border-bottom: none; }
     footer { text-align: center; padding: 32px 24px; color: #9ca3af; font-size: 0.85rem; border-top: 1px solid #f1f5f9; }
     .section-divider { border: none; border-top: 1px solid #f1f5f9; margin: 40px 0; }
+    .jump-nav {
+      display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+      margin-top: 20px;
+    }
+    .jump-nav a {
+      background: rgba(255,255,255,0.12); color: #cbd5e1; border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 6px; padding: 4px 12px; font-size: 0.82rem; text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .jump-nav a:hover { background: rgba(255,255,255,0.2); color: #fff; text-decoration: none; }
   </style>
 </head>
 <body>
@@ -61,10 +71,20 @@
       <a href="index.html">Home</a>
       <a href="privacy.html">Privacy Policy</a>
     </nav>
+    <div class="jump-nav">
+      <a href="#features">Features</a>
+      <a href="#voice">Voice Follow</a>
+      <a href="#voice-commands">Voice Commands (ድምጺ)</a>
+      <a href="#teleprompter">Teleprompter</a>
+      <a href="#transliteration">Transliteration</a>
+      <a href="#shortcuts">Shortcuts (ኣጠቓቕማ)</a>
+      <a href="#settings">Settings</a>
+      <a href="#install">Install</a>
+    </div>
   </header>
 
   <main>
-    <h2>What it does</h2>
+    <h2 id="features">What it does</h2>
     <p>Text Highlighter places a visible box around the current word or line and lets you step through text at your own pace. It includes <strong>voice follow mode</strong> that listens to you read aloud and advances the highlight automatically, a <strong>teleprompter</strong> for silent reading, and <strong>Tiglish transliteration</strong> for Ge'ez script.</p>
 
     <div class="feature-grid">
@@ -110,12 +130,12 @@
       <li><strong>AbbaSelama.org</strong> &mdash; prayer texts with content change detection, psalm jump by number.</li>
       <li><strong>GeezExperience.com</strong> &mdash; Tigrinya/English Bible with two-column support, verse jump by number.</li>
       <li><strong>BibleGateway.com</strong> &mdash; chapter navigation and verse jump by number or voice.</li>
-      <li><strong>Any website</strong> &mdash; toggle ON from the popup or press <kbd>Option+H</kbd>.</li>
+      <li><strong>Any website</strong> &mdash; toggle ON from the popup or press <kbd>Option+H</kbd> (Mac) / <kbd>Alt+H</kbd> (Windows).</li>
     </ul>
 
     <hr class="section-divider">
 
-    <h2>Voice follow mode</h2>
+    <h2 id="voice">Voice follow mode</h2>
     <p>Press <kbd>V</kbd> to start voice follow. A green mic indicator appears in the top-right corner showing <strong>ትግ</strong> (Tigrinya) or <strong>EN</strong> (English). Read aloud and the highlight advances automatically.</p>
     <ul>
       <li>On Ge'ez sites (AbbaSelama, GeezExperience), uses Amharic speech recognition &mdash; the closest Chrome-supported language to Tigrinya.</li>
@@ -125,7 +145,7 @@
 
     <hr class="section-divider">
 
-    <h2>Voice commands</h2>
+    <h2 id="voice-commands">Voice commands</h2>
     <p>While voice follow is active, say <strong>"Ok reader"</strong> (or <strong>"Hey reader"</strong>) followed by a command:</p>
 
     <table class="voice-cmd-table">
@@ -158,22 +178,22 @@
 
     <hr class="section-divider">
 
-    <h2>Teleprompter mode</h2>
+    <h2 id="teleprompter">Teleprompter mode</h2>
     <p>Press <kbd>P</kbd> to start the teleprompter. The page scrolls at a steady pace for silent reading. Use <kbd>&uarr;</kbd> / <kbd>&darr;</kbd> to adjust speed, <kbd>Space</kbd> to pause and resume.</p>
 
     <hr class="section-divider">
 
-    <h2>Tiglish transliteration</h2>
+    <h2 id="transliteration">Tiglish transliteration</h2>
     <p>Press <kbd>G</kbd> to show Latin pronunciation below each Ge'ez word (e.g. ሰላም &rarr; selam). Useful for readers who can speak Tigrinya but are still learning to read the Ge'ez script. Press <kbd>G</kbd> again to hide.</p>
 
     <hr class="section-divider">
 
-    <h2>Keyboard shortcuts</h2>
+    <h2 id="shortcuts">Keyboard shortcuts (ኣጠቓቕማ)</h2>
 
     <table class="shortcut-table">
       <tr><th>Key</th><th>Action</th></tr>
       <tr><td colspan="2" class="section-label">Navigation</td></tr>
-      <tr><td><kbd>Option+H</kbd></td><td>Toggle highlighter on/off</td></tr>
+      <tr><td><kbd>Option+H</kbd> (Mac) / <kbd>Alt+H</kbd> (Windows)</td><td>Toggle highlighter on/off</td></tr>
       <tr><td><kbd>.</kbd> or <kbd>&rarr;</kbd></td><td>Next word/line</td></tr>
       <tr><td><kbd>,</kbd> or <kbd>&larr;</kbd></td><td>Previous word/line</td></tr>
       <tr><td><kbd>W</kbd></td><td>Cycle word group size (1 &rarr; 10 &rarr; Line)</td></tr>
@@ -192,13 +212,13 @@
 
       <tr><td colspan="2" class="section-label">Display</td></tr>
       <tr><td><kbd>B</kbd></td><td>Show/hide status badge</td></tr>
-      <tr><td><kbd>?</kbd></td><td>Toggle keyboard shortcut help overlay</td></tr>
+      <tr><td><kbd>Shift+?</kbd></td><td>Toggle keyboard shortcut help overlay</td></tr>
       <tr><td><kbd>Esc</kbd></td><td>Cancel pick mode or turn off highlighter</td></tr>
     </table>
 
     <hr class="section-divider">
 
-    <h2>Popup settings</h2>
+    <h2 id="settings">Popup settings</h2>
     <p>Click the extension icon in the toolbar to customize:</p>
     <ul>
       <li><strong>On/Off</strong> &mdash; activate or deactivate on the current page</li>
@@ -215,13 +235,13 @@
 
     <hr class="section-divider">
 
-    <h2>How to install</h2>
+    <h2 id="install">How to install</h2>
     <ol>
       <li>Install from the <a href="#">Chrome Web Store</a></li>
       <li>Go to any webpage</li>
-      <li>Press <kbd>Option+H</kbd> or click the extension icon and toggle <strong>ON</strong></li>
+      <li>Press <kbd>Option+H</kbd> (Mac) / <kbd>Alt+H</kbd> (Windows) or click the extension icon and toggle <strong>ON</strong></li>
       <li>Use <kbd>.</kbd> to advance, <kbd>,</kbd> to go back, or press <kbd>V</kbd> for voice follow</li>
-      <li>Press <kbd>?</kbd> to see all keyboard shortcuts</li>
+      <li>Press <kbd>Shift+?</kbd> to see all keyboard shortcuts</li>
     </ol>
   </main>
 
